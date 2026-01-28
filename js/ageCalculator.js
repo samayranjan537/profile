@@ -43,24 +43,26 @@ function calculateAge(dobStr) {
         years--;
       }
 
-      let yearsString = 'year';
-      if (years > 1) {
+      var yearsString = '<strong>' + years + '</strong> year';
+      if (years == 0) {
+        yearsString = '';
+      } else if (years > 1) {
         yearsString += 's';
       }
 
-      let monthsString = 'month';
-      if (month > 1) {
+      var monthsString = ' <strong>' + months + '</strong> month';
+      if (month == 0) {
+        monthsString = '';
+      } else if(month > 1) {
         monthsString += 's';
       }
 
-      let daysString = 'day';
-      if (days > 1) {
+      var daysString = ' <strong>' + days + '</strong> day';
+      if (days == 0) {
+        daysString = '';
+      } else if (days > 1) {
         daysString += 's';
       }
 
-      return `
-            <strong>${years}</strong> ${yearsString}
-            <strong>${months}</strong> ${monthsString} and
-            <strong>${days}</strong> ${daysString}
-          `;
+      return `${yearsString}${monthsString}${daysString}`;
     }
